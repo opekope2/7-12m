@@ -16,8 +16,8 @@ function disp() {
     var avgwin = window.open("", "Átlag", "width=400,height=300");
     avgwin.document.write("<html><head><meta name='viewport' content='width=device-width, initial-scale=1.0'></head><body><div style='width: 100%'>");
     var statistics = document.getElementById("statistics");
+    var grades = [];
     for (var i = 2, row; row = statistics.rows[i]; i++) {
-        var grades = [];
         for (var j = selected_szemeszter(), col; col = row.cells[j]; j++) {
             for (var k = 0, child; child = col.children[k]; k++) {
                 var g = child.innerText;
