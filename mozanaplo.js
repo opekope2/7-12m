@@ -34,6 +34,7 @@ function disp() {
                     }
                 }
             }
+            catch (e) { }
         }
         for (var j = selected_szemeszter(), col; col = row.cells[j]; j++) {
             for (var k = 0, child; child = col.children[k]; k++) {
