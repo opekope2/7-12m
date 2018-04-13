@@ -18,7 +18,7 @@ function disp() {
     var statistics = document.getElementById("statistics");
     for (var i = 2, row; row = statistics.rows[i]; i++) {
         var grades = [];
-        for (var j = 1, col; col = row.cells[j]; j++) {
+        for (var j = selected_szemeszter(), col; col = row.cells[j]; j++) {
             for (var k = 0, child; child = col.children[k]; k++) {
                 var g = child.innerText;
                 g = g.replace("1/2", "1.5");
@@ -51,6 +51,8 @@ function avg(arr) {
         nums += Number(arr[v].multiplier);
         normal += Number(arr[v].grade);
     }
-    var ret = { normal: normal / arr.length, weighted: weighted / nums };
-    return ret;
+    return { normal: normal / arr.length, weighted: weighted / nums };
+}
+function selected_szemeszter() {
+    return parseInt(document.getElementById("selected_szemeszter").value.split("/")[1]);
 }
