@@ -39,6 +39,7 @@ function disp() {
         avgwin.document.write(div);
     }
     avgwin.document.write("</div></body></html>");
+    window.grades = grades;
 }
 function avg(arr) {
     if (!arr.length)
