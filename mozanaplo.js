@@ -18,14 +18,25 @@ function disp() {
     var statistics = document.getElementById("statistics");
     for (var i = 2, row; row = statistics.rows[i]; i++) {
         var grades = [];
+        if (selected_szemeszter() == 2) {
+            var req = new XMLHttpRequest();
+            req.open("GET", row.cells[1].children[0].href, false);
+            req.send();
+            var parser = new DOMParser();
+            var doc = parser.parseFromString(req.responseText, "text/html");
+
+            for (var j = 1, col; col = doc.getElementsByTagName("table")[0].rows[2].cells[j - 1]; j++) {
+                if (j == doc.getElementsByTagName("table")[0].rows[2].cells.length) {
+                    break;
+                }
+                for (var k = 0, child; child = col.children[k]; k++) {
+                    grades.push({ grade: getGrade(child.innerText), multiplier: values[child.style.color] });
+                }
+            }
+        }
         for (var j = selected_szemeszter(), col; col = row.cells[j]; j++) {
             for (var k = 0, child; child = col.children[k]; k++) {
-                var g = child.innerText;
-                g = g.replace("1/2", "1.5");
-                g = g.replace("2/3", "2.5");
-                g = g.replace("3/4", "3.5");
-                g = g.replace("4/5", "4.5");
-                grades.push({ grade: g, multiplier: values[child.style.color] });
+                grades.push({ grade: getGrade(child.innerText), multiplier: values[child.style.color] });
             }
         }
         var div = "";
@@ -55,4 +66,12 @@ function avg(arr) {
 }
 function selected_szemeszter() {
     return parseInt(document.getElementById("selected_szemeszter").value.split("/")[1]);
+}
+function getGrade(text) {
+    var g = text;
+    g = g.replace("1/2", "1.5");
+    g = g.replace("2/3", "2.5");
+    g = g.replace("3/4", "3.5");
+    g = g.replace("4/5", "4.5");
+    return g;
 }
