@@ -24,13 +24,14 @@ function disp() {
             req.send();
             var parser = new DOMParser();
             var doc = parser.parseFromString(req.responseText, "text/html");
-
-            for (var j = 1, col; col = doc.getElementsByTagName("table")[0].rows[2].cells[j - 1]; j++) {
-                if (j == doc.getElementsByTagName("table")[0].rows[2].cells.length) {
-                    break;
-                }
-                for (var k = 0, child; child = col.children[k]; k++) {
-                    grades.push({ grade: getGrade(child.innerText), multiplier: values[child.style.color] });
+            try {
+                for (var j = 1, col; col = doc.getElementsByTagName("table")[0].rows[2].cells[j - 1]; j++) {
+                    if (j == doc.getElementsByTagName("table")[0].rows[2].cells.length) {
+                        break;
+                    }
+                    for (var k = 0, child; child = col.children[k]; k++) {
+                        grades.push({ grade: getGrade(child.innerText), multiplier: values[child.style.color] });
+                    }
                 }
             }
         }
