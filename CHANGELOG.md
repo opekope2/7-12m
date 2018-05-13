@@ -2,6 +2,10 @@
 ## Letöltés
 [Letöltés Androidra](https://github.com/opekope2/7-12m/blob/master/TimeLeft.apk?raw=true)
 ## Változások
+### 1.5
+* Tényleg pontos számítás
+* Hibajavítás
+* Szövegelírás javítás
 ### 1.4
 * Pontos számítás
 * Dátumok frissítése
