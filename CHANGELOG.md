@@ -1,7 +1,9 @@
 # Nyári szünetig már csak...
 ## Letöltés
-[Letöltés Androidra](https://github.com/opekope2/7-12m/blob/master/TimeLeft.apk?raw=true)
+[Letöltés innen](https://gitlab.com/7-12m/7-12m/blob/master/CHANGELOG.md)
 ## Változások
+### Továbbiak
+[Lásd itt](https://gitlab.com/7-12m/7-12m/blob/master/CHANGELOG.md)
 ### 1.5
 * Tényleg pontos számítás
 * Hibajavítás
