@@ -1,4 +1,5 @@
 # RMG 7-12m
+Elköltöztünk [ide](https://gitlab.com/7-12m/7-12m)
 ###### Mozanapló súlyozott átlag számoló kiegészítő
 1. [MozaNapló](https://rmg.mozanaplo.hu)
 2. Bejelentkezés
